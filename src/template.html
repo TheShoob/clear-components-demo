@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <style>
+    section{
+      min-height: 100vh;
+    }
+    html {
+      background-color:rgb(51, 56, 77) ;
+      
+      --bg: rgb(51, 56, 77);
+      --bg-fade: 51, 56, 77; /* needed for fade out text for clr-block-expand */
+      --primary: rgb(184, 90, 90);      
+       
+      --highlight:rgb(237, 162, 162);
+      --highlight-fade: 202, 97, 97;
+
+      --fontColor: rgb(215, 174, 174);
+      --iconColor: rgb(202, 97, 97);
+
+      --primaryFontFamily: 'Roboto', sans-serif;
+      --secondaryFontFamily: 'helvetica', sans-serif;
+      --fontSize: 16px;
+      --fs-s: .8rem;
+      --fs-m: 1rem;
+      --fs-l: 1.2rem;
+
+      --errorColor: #af2a23;
+      --errorColor-bg: #fff1f0;
+
+      --successColor: #468b12;
+      --successColor-bg: #f6ffed;
+
+      --warningColor: #b58900;
+      --warningColor-bg: #fff8e0;
+
+      --infoColor: #2176aa;
+      --infoColor-bg: #e6f7ff;
+
+    }
+    html[data-theme='dark'] {
+      --bg: rgb(55, 55, 55);
+      
+      --primary: rgb(255, 255, 255);
+      --primary-fade: 255, 255, 255;
+           
+      --highlight:rgb(48, 50, 55);
+      --highlight-fade: 48, 50, 55;
+
+      --fontColor: rgb(202, 97, 97);
+      --iconColor: rgb(202, 97, 97);
+
+      --errorColor: #af2a23;
+      --errorColor-bg: #fff1f0;
+
+      --successColor: #468b12;
+      --successColor-bg: #f6ffed;
+
+      --warningColor: #b58900;
+      --warningColor-bg: #fff8e0;
+
+      --infoColor: #2176aa;
+      --infoColor-bg: #e6f7ff;
+    }
+    body {
+      margin: 0px;
+    }
+    clr-header {
+       --iconColor: rgb(187, 199, 216);
+       --fontColor: rgb(187, 199, 216);
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .marg-10 {
+      margin: 10px;
+    }
+    clr-card {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    clr-side-menu > clr-icon-btn {
+      margin-bottom: 10px;
+    }
+    clr-side-menu > clr-icon-btn:last-child {
+      margin-bottom: 0px;
+    }
+
+    .aSlideThing {
+      width: 100vw;
+      background-color: #272C3D;
+    }
+  </style>
+</head>
+<body>
+  <a style="position:absolute; top:0px;" name="one"></a>
+
+  <clr-header height="60px">
+    <img slot="logo" height='45px' src="http://clearedgestudio.com/svg/mark.svg" />
+
+    <clr-nav slot="nav">
+        <clr-drop-link slot="link" text="Drop Link Text test" href="#main1" target="_blank"></clr-drop-link>
+        <clr-drop-link slot="link" text="Drop Link Text" href="#main2">
+          <a slot="link" href="#one">One</a>
+          <a slot="link" href="#two">Two</a>
+          <a slot="link" href="#three">Three</a>        
+          <clr-drop-link slot="link" text="Drop Link Text" href="#main2" target="_blank">
+            <a slot="link" href="#one">One</a>
+            <a slot="link" href="#two">Two</a>
+            <a slot="link" href="#three">Three</a>
+            <clr-drop-link slot="link" text="Drop Link Text" href="#main2">
+              <a slot="link" href="#one">One</a>
+              <a slot="link" href="#two">Two</a>
+            </clr-drop-link>
+          </clr-drop-link>
+          <a slot="link" href="#six">six</a>
+        </clr-drop-link>
+        <clr-drop-link slot="link" text="Drop Link Text test" href="#main1"></clr-drop-link>
+        <a slot="link" href="#six">six</a>
+    </clr-nav> 
+    <a href="#" slot="icon"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></a>
+    <a href="#" slot="icon"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></a>
+    <a href="#" slot="icon"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></a>
+
+    <clr-nav-btn slot="btn"></clr-nav-btn><!-- * Nessesary for the nav to be accessable-->
+  </clr-header>
+  <br><br>
+  <clr-carousel size="quater">
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes" justify="flex-start" breakpoint="800">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut cursus lorem, non porta quam. Duis nec mauris id urna lacinia suscipit in sit amet eros. Aliquam a tellus quis mauris ultricies pharetra. Nunc risus justo, convallis gravida turpis a, vestibulum pretium massa. Quisque at magna sed risus tempus bibendum. Proin risus mi, bibendum vitae lectus ut, bibendum feugiat mauris. Nunc semper rutrum lacus quis convallis. Fusce fringilla, justo vitae volutpat dapibus, elit justo pellentesque nisi, eu egestas lorem turpis nec elit. In vehicula efficitur eros, ut ullamcorper nisl ultricies eu.</div>
+    </clr-slide>
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes" justify="flex-start" breakpoint="500">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes" justify="flex-start" breakpoint="900">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes" justify="center" breakpoint="300">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+    <div class="aSlideThing" slot="slide"><p class="aSlideThing" >some stuff goes here this is not a clr-slide</p></div>
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes" justify="center" breakpoint="300">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+  </clr-carousel>
+  <br>
+  <clr-carousel size="full">
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+  </clr-carousel>
+  <br>
+  <clr-carousel size="third">
+    <clr-slide bgcolor="rgb(39, 44, 61)" slot="slide" bgimg="/test_assets/bg-slide-1.png" title="First Title" bgrepeat="yes">
+      <img slot="img" src="http://clearedgestudio.com/svg/mark.svg" />
+      <div slot="info">This is some content</div>
+    </clr-slide>
+  </clr-carousel>
+  
+  <!--<clr-left-drawer>
+    <img slot="logo" height='45px' src="http://clearedgestudio.com/svg/mark.svg" />
+    <nav slot="nav">
+
+    </nav>
+  </clr-left-drawer>-->
+
+  <clr-side-menu side="left" hidden="true" expanded="false" size="large">
+    <clr-icon-btn slot="link" href="#" text="test"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+    <clr-icon-btn slot="link" href="#" text="this is a regular thing"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+    <clr-icon-btn slot="link" href="#" text="this is a regular thing"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+    <clr-icon-btn slot="link" href="#" text="this is a regular thing blah blah"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+    <clr-icon-btn slot="link" href="#" text="test"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+  </clr-side-menu>
+
+  <clr-expand-link text="hi" href="#">
+    <a slot="link" href="#one">One</a>
+    <clr-expand-link slot="link" text="hi" href="#">
+      <a slot="link" href="#one">One</a>
+    </clr-expand-link>
+  </clr-expand-link>
+
+  <clr-expand-link text="hi" href="#">
+    <a slot="link" href="#one">One</a>
+    <clr-expand-link slot="link" text="hi" href="#">
+      <a slot="link" href="#one">One</a>
+    </clr-expand-link>
+  </clr-expand-link>
+
+  <clr-expand-link text="hi" href="#">
+    <a slot="link" href="#one">One</a>
+    <clr-expand-link slot="link" text="hi" href="#">
+      <a slot="link" href="#one">One</a>
+    </clr-expand-link>
+  </clr-expand-link>
+  
+  <clr-pn-btn></clr-pn-btn>
+
+  <clr-wheel-ui></clr-wheel-ui>
+
+  <clr-popup-btn kind="info"></clr-popup-btn>
+
+  <section>
+    <a name="two"></a>
+    <div class="row">
+      <clr-icon-btn class="marg-10" href="#" text="|"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="|||||"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="wwwwwww"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="wwwwwwwwww wwwwwwwwwww"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"><clr-icon slot="icon" size="tiny" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"><clr-icon slot="icon" size="large" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="is"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+      <clr-icon-btn class="marg-10" href="#" text="this is a regular thing"><clr-icon slot="icon" size="small" kind="doc"></clr-icon></clr-icon-btn>
+    </div>
+    <br><br>
+    <clr-icon size="large" kind="doc"></clr-icon>
+    <br><br>
+
+    <div class='row'>
+      <clr-card bgcolor="rgb(39, 44, 61)" title="card Title Text" subtitle="this is sub title text" href="#main1" size="quater">
+        <img slot="img" height="100px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="quater">
+        <img slot="img" height="100px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="quater">
+        <img slot="img" height="100px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="quater">
+        <img slot="img" height="100px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+      </clr-card>
+    </div>
+    <br><br>
+    <div class='row'>
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="third">
+        <img slot="img" height="130px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="third">
+        <img slot="img" height="130px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="third">
+        <img slot="img" height="130px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+      </clr-card>
+    </div>
+    <br><br>
+    <div class='row'>
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="half">
+        <img slot="img" height="180px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="half">
+        <img slot="img" height="180px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+    </div>
+    <br><br>
+    <div class='row'>
+      <clr-card title="card Title Text" subtitle="this is sub title text" href="#main1" size="full">
+        <img slot="img" height="230px" src="http://clearedgestudio.com/svg/mark.svg"/>
+        <div slot="card-body">this is the stuff for the card body.. you can put whatever in here.</div>
+        <div slot="card-expand-body">THIS IS WHERE THE EXPAND STUFF GOES!</div>
+      </clr-card>
+    </div>
+  </section>
+  <section>
+    <a name="three"></a>
+
+    <clr-block-expand bgimg="http://clearedgestudio.com/svg/mark.svg" bgcolor="rgb(70, 77, 101)" show="200">
+        <div slot="info">
+          <h1>block title</h1>
+          <h2>sub title</h2>
+          smaller test<br>
+          something else<br>
+          another thing
+          <p>
+            <img height="100px" src="/"/>
+          </p>
+        </div>
+        <div slot="body">
+          <p>
+            <img height="100px" src="/"/>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor leo ut libero hendrerit feugiat. Phasellus sit amet sapien augue. Proin et pellentesque risus, non auctor libero. Nulla sit amet tortor tempor metus sodales suscipit. Proin egestas, metus id dignissim pharetra, odio massa tristique odio, vel placerat tortor arcu nec velit. Morbi sit amet mattis metus, eget feugiat eros. Aliquam molestie sem lacinia mi fermentum iaculis. Nullam leo tortor, lobortis fringilla neque in, ornare consectetur neque. Mauris vulputate elit vitae eros porta, pulvinar malesuada ex fringilla. Maecenas vehicula lorem imperdiet, semper tellus eget, gravida mauris. Praesent volutpat tincidunt orci, a molestie lacus suscipit eget. Proin convallis odio et purus fringilla, sit amet mattis eros accumsan.
+            <br>
+            Quisque dignissim condimentum suscipit. Vivamus fringilla lorem non augue gravida tincidunt. Aenean porta, massa a ultricies mollis, felis justo lacinia ante, in rhoncus augue magna quis turpis. Morbi ut dignissim elit, tempor fermentum dolor. Duis sed dolor aliquet massa tincidunt feugiat. Vivamus sodales malesuada malesuada. Nunc cursus nisi in venenatis dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent blandit ex magna, id hendrerit sapien congue eu. Praesent et ante at mi molestie pellentesque. Pellentesque non ligula et ante porttitor ultrices.
+          </p>
+        </div>
+    </clr-block-expand>
+    <clr-block-expand bgimg="http://clearedgestudio.com/svg/mark.svg" bgcolor="rgb(70, 77, 101)" show="100">
+      <div slot="info">
+        <h1>block title</h1>
+        <h2>sub title</h2>
+        smaller test<br>
+        something else<br>
+        another thing
+      </div>
+      <div slot="body">
+        <img slot="img" height="100px" src="/"/>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor leo ut libero hendrerit feugiat. Phasellus sit amet sapien augue. Proin et pellentesque risus, non auctor libero. Nulla sit amet tortor tempor metus sodales suscipit. Proin egestas, metus id dignissim pharetra, odio massa tristique odio, vel placerat tortor arcu nec velit. Morbi sit amet mattis metus, eget feugiat eros. Aliquam molestie sem lacinia mi fermentum iaculis. Nullam leo tortor, lobortis fringilla neque in, ornare consectetur neque. Mauris vulputate elit vitae eros porta, pulvinar malesuada ex fringilla. Maecenas vehicula lorem imperdiet, semper tellus eget, gravida mauris. Praesent volutpat tincidunt orci, a molestie lacus suscipit eget. Proin convallis odio et purus fringilla, sit amet mattis eros accumsan.
+        <br>
+        Quisque dignissim condimentum suscipit. Vivamus fringilla lorem non augue gravida tincidunt. Aenean porta, massa a ultricies mollis, felis justo lacinia ante, in rhoncus augue magna quis turpis. Morbi ut dignissim elit, tempor fermentum dolor. Duis sed dolor aliquet massa tincidunt feugiat. Vivamus sodales malesuada malesuada. Nunc cursus nisi in venenatis dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent blandit ex magna, id hendrerit sapien congue eu. Praesent et ante at mi molestie pellentesque. Pellentesque non ligula et ante porttitor ultrices.
+      </div>
+  </clr-block-expand>
+  </section>
+  <section>
+    <a name="four"></a>
+  </section>
+  <section>
+    <a name="five"></a>
+  </section>
+  <section>
+    <a name="six"></a>
+  </section>
+
+  <!--<clr-alert-center location="bottom">
+
+    <clr-alert slot="alert" kind="info" text="here is some usful info"></clr-alert>
+    <clr-alert slot="alert" kind="success" text="Success!"></clr-alert>
+    <clr-alert slot="alert" kind="warning" text="Warning!"></clr-alert>
+    <clr-alert slot="alert" kind="error" text="Error!"></clr-alert>
+
+  </clr-alert-center>-->
+
+  <clr-footer></clr-footer>
+
+</body>
+</html>
